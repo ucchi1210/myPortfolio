@@ -1,0 +1,6 @@
+@charset "UTF-8";
+.input {
+  border: none!important;
+  outline: none;
+  background: transparent;
+}

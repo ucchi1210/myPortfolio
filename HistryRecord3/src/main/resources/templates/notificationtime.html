@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{list.css}">
+<title>通知時間変更</title>
+</head>
+<body>
+<div layout:fragment="content">
+<div class="header border-bottom">
+<h1 class="h2">通知時間変更</h1>
+</div>
+<p>現在の通知時間</p>
+<br>
+<p th:text="${notificationForm.notificationTime}"></p>
+<form id="register-form" method="post" action="/notificationtime"
+		class="form-signup" th:object="${notificationForm}">
+		
+		
+		<div class="form-group">
+			<label for="title">変更後通知時間</label> <input type="time"
+				class="form-control" th:field="*{notificationTime}"
+				th:errorclass="is-invalid">
+			<div class="invalid-feedback" th:errors="*{notificationTime}"></div>
+		</div>
+		
+		<input type="submit" value="変更" class="btn btn-dark w-100 mt-3">
+	</form>
+</div>
+</body>
+</html>

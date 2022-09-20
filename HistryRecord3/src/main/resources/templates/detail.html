@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{list.css}">
+<script th:src="@{dataDetail.js}"defer></script>
+<title>URL詳細</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="header border-bottom">
+			<h1 class="h2">URL詳細</h1>
+		</div>
+		<form id="data-detail-form" method="post" th:action="@{/detail}"
+			class="form-signup" th:object="${dataDetailForm}">
+			<input type="hidden" th:field="*{uniqueId}">
+			<!-- 詳細情報 -->
+			<table class="table table-striped table-borderd table-hover">
+				<tbody>
+					<tr>
+						<th class="w-25 table-dark">UUID</th>
+						<td th:text="*{uniqueId}"></td>
+					</tr>
+					<tr>
+						<th class="table-dark">ユーザーID</th>
+						<td th:text="*{userId}"></td>
+					</tr>
+					<tr>
+						<th class="table-dark">タイトル</th>
+						<td><input type="text" class="form-control"
+							th:field="*{title}"></td>
+					</tr>
+					<tr>
+						<th class="table-dark">URL</th>
+						<td><input type="text" class="form-control"
+							th:field="*{siteUrl}"></td>
+					</tr>
+
+					
+				</tbody>
+
+			</table>
+			<!-- ボタンエリア -->
+			<div class="text-center">
+				<!-- 削除ボタン -->
+				<button class="btn btn-danger" type="submit" name="delete">削除</button>
+				<!-- 更新ボタン -->
+				<button class="btn btn-dark" type="submit" name="update">更新</button>
+			</div>
+			
+
+		</form>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{list.css}">
+<title>URL登録</title>
+</head>
+<body>
+<div layout:fragment="content">
+<div class="header border-bottom">
+<h1 class="h2">URL登録</h1>
+</div>
+<form id="register-form" method="post" action="/register"
+		class="form-signup" th:object="${registerForm}">
+		
+		<!-- サイトURL -->
+		<div class="form-group">
+			<label for="siteUrl">サイトURL</label> <input type="text"
+				class="form-control" th:field="*{siteUrl}" th:errorclass="is-invalid">
+			<div class="invalid-feedback" th:errors="*{siteUrl}"></div>
+		</div>
+		<!-- タイトル -->
+		<div class="form-group">
+			<label for="title">タイトル</label> <input type="text"
+				class="form-control" th:field="*{title}"
+				th:errorclass="is-invalid">
+			<div class="invalid-feedback" th:errors="*{title}"></div>
+		</div>
+		
+		<input type="submit" value="登録" class="btn btn-dark w-100 mt-3">
+	</form>
+</div>
+</body>
+</html>

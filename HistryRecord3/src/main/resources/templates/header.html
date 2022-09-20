@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8">
+
+<title></title>
+</head>
+<body>
+	<nav layout:fragment="header" class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="/datalist">更新通知メールを送る</a>
+    <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#exampleNavbarToggle"
+        aria-controls="exampleNavbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="exampleNavbarToggle">
+      <ul class="navbar-nav ms-auto mb-1">
+         <li class="nav-item"><a class="nav-link" href="/datalist">ホーム</a></li>
+         <li class="nav-item"><a class="nav-link" href="/dataRegistration">新規登録</a></li>
+        <li class="nav-item"><a class="nav-link" href="/notificationtime">通知時間変更</a></li>
+        <li class="nav-item"><a class="nav-link" href="/logout">ログアウト</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+@charset "UTF-8";
+.main{
+  position: fixed;
+  display: block;
+  
+  bottom: auto;
+  padding-left:0px;
+  overflow-y: auto;
+ /*  height: calc(100vh-58px);*/
+}

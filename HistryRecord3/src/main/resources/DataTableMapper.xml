@@ -1,0 +1,86 @@
+<?xml version ="1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapperとxmlのマッピング -->
+<mapper namespace="com.example.dataTable.DataTableMapper">
+
+	<!-- マッピング定義（DataTable） -->
+	<resultMap type="com.example.dataTable.DataTable"
+		id="dataTable">
+		<id column="unique_id" property="uniqueId" />
+		<result column="user_id" property="userId" />
+		<result column="title" property="title" />
+		<result column="site_url" property="siteUrl" />
+		<result column="notification_time" property="notificationTime" />
+	</resultMap>
+
+	<!-- データテーブル一件登録 -->
+	<insert id="insertOne">
+		insert into data_table(
+		user_id,
+		title,
+		site_url,
+		notification_time
+		)
+		values (
+		#{userId},
+		#{title},
+		#{siteUrl},
+		#{notificationTime}
+		)
+	</insert>
+
+	<!-- データテーブル複数件取得 -->
+	<select id="findMany"
+		resultType="com.example.dataTable.DataTable">
+
+		select
+		*
+		from
+		data_table
+		<where>
+		<if test="title != null">
+		title like '%'||#{title}||'%'
+		</if>
+		<if test="siteUrl != null">
+		and site_url like '%'||#{siteUrl}||'%'
+		</if>
+		</where>
+
+	</select>
+
+
+	<!-- データテーブル一件検索 -->
+	<select id="findOneDataTable" resultMap="dataTable">
+
+		select
+		*
+		from
+		data_table
+		where
+		unique_id=#{uniqueId}
+
+	</select>
+
+	<!-- データ一件更新 -->
+	<update id="updateOne">
+		update
+		data_table
+		set
+		title = #{title},
+		site_url = #{siteUrl},
+		notification_time = #{notificationTime}
+		where
+		unique_id = #{uniqueId}
+	</update>
+
+	<!-- データ一件削除 -->
+	<delete id="deleteOne">
+		delete from
+		data_table
+		where
+		unique_id = #{uniqueId}
+	</delete>
+</mapper>
+	

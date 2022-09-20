@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link rel="stylesheet" th:href="@{/signup.css}">
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+<title>ユーザー登録</title>
+</head>
+<body class="bg-light">
+	<form id="signup-form" method="post" action="/signup"
+		class="form-signup" th:object="${signupForm}">
+		<h1 class="text-center">ユーザー登録</h1>
+		<!-- ユーザーID -->
+		<div class="form-group">
+			<label for="userId">ユーザーID</label> <input type="text"
+				class="form-control" th:field="*{userId}" th:errorclass="is-invalid">
+			<div class="invalid-feedback" th:errors="*{userId}"></div>
+		</div>
+		<!-- パスワード -->
+		<div class="form-group">
+			<label for="password">パスワード</label> <input type="text"
+				class="form-control" th:field="*{password}"
+				th:errorclass="is-invalid">
+			<div class="invalid-feedback" th:errors="*{password}"></div>
+		</div>
+		<!-- ユーザー名 -->
+		<div class="form-group">
+			<label for="userName">ユーザー名</label> <input type="text"
+				class="form-control" th:field="*{userName}"
+				th:errorclass="is-invalid">
+			<div class="invalid-feedback" th:errors="*{userName}"></div>
+		</div>
+		<!-- 通知時間 -->
+		
+		<div class="form-group">
+			<label for="userName">通知時間</label> <input type="time"
+				class="form-control" th:field="*{notificationTime}"
+				th:errorclass="is-invalid">
+			<div class="invalid-feedback" th:errors="*{notificationTime}"></div>
+		</div>
+		
+		<input type="submit" value="ユーザー登録" class="btn btn-dark w-100 mt-3">
+	</form>
+
+</body>
+</html>
